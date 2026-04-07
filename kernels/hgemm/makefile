@@ -83,6 +83,10 @@ wgmma_tn_90:
 	nvcc wgmma/hgemm_wgmma_fp16acc_stages_tn.cu -o hgemm_wgmma_fp16acc.90.bin $(DEFAULT_FLAGS_90)
 wgmma_tn_90_debug:
 	nvcc wgmma/hgemm_wgmma_fp16acc_stages_tn.cu -o hgemm_wgmma_fp16acc.90.debug.bin $(DEFAULT_FLAGS_90) -DHGEMM_WGMMA_DEBUG
+wgmma_tn_90_fp32acc:
+	nvcc wgmma/hgemm_wgmma_fp32acc_stages_tn.cu -o hgemm_wgmma_fp32acc.90.bin $(DEFAULT_FLAGS_90)
+wgmma_tn_90_fp32acc_debug:
+	nvcc wgmma/hgemm_wgmma_fp32acc_stages_tn.cu -o hgemm_wgmma_fp32acc.90.debug.bin $(DEFAULT_FLAGS_90) -DHGEMM_WGMMA_DEBUG
 
 clean:
 	rm -rf *.bin & rm -rf ./bin
