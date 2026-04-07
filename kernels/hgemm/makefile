@@ -2,9 +2,11 @@ INCLUDE_DIRS=-I ./utils -I ../../third-party/cutlass/include -I ../../third-part
 ARCHS=-gencode arch=compute_80,code=sm_80 -gencode arch=compute_89,code=sm_89
 ARCHS_80=-gencode arch=compute_80,code=sm_80
 ARCHS_89=-gencode arch=compute_89,code=sm_89
+ARCHS_90=-gencode arch=compute_90a,code=sm_90a
 DEFAULT_FLAGS=-O2 $(ARCHS) -std=c++17 $(INCLUDE_DIRS) --expt-relaxed-constexpr -lcublas
 DEFAULT_FLAGS_89=-O2 $(ARCHS_89) -std=c++17 $(INCLUDE_DIRS) --expt-relaxed-constexpr -lcublas
 DEFAULT_FLAGS_80=-O2 $(ARCHS_80) -std=c++17 $(INCLUDE_DIRS) --expt-relaxed-constexpr -lcublas
+DEFAULT_FLAGS_90=-O2 $(ARCHS_90) -std=c++20 $(INCLUDE_DIRS) --expt-relaxed-constexpr -lcublas -lcuda
 
 # Default
 default:
@@ -75,6 +77,12 @@ mma_tn_80_swizzle_x4:
 	nvcc mma/swizzle/hgemm_mma_stage_tn_swizzle_x4.cu -o hgemm_mma_stage_tn_swizzle_x4.80.bin $(DEFAULT_FLAGS_80)
 mma_tn_80_swizzle_x4_debug:
 	nvcc mma/swizzle/hgemm_mma_stage_tn_swizzle_x4.cu -o hgemm_mma_stage_tn_swizzle_x4.80.debug.bin $(DEFAULT_FLAGS_80) -DHGEMM_MMA_DEBUG
+
+# SM 90 WGMMA TN
+wgmma_tn_90:
+	nvcc wgmma/hgemm_wgmma_fp16acc_stages_tn.cu -o hgemm_wgmma_fp16acc.90.bin $(DEFAULT_FLAGS_90)
+wgmma_tn_90_debug:
+	nvcc wgmma/hgemm_wgmma_fp16acc_stages_tn.cu -o hgemm_wgmma_fp16acc.90.debug.bin $(DEFAULT_FLAGS_90) -DHGEMM_WGMMA_DEBUG
 
 clean:
 	rm -rf *.bin & rm -rf ./bin
