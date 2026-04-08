@@ -384,7 +384,7 @@ The kernels listed here will guide you through a step-by-step progression, rangi
 | ✔️ [hgemm_mma_stages_swizzle{smem}...cute*](./kernels/hgemm/cutlass/hgemm_mma_stage_tn_cute.cu)|f16|f16|[link](./kernels/hgemm/)|⭐️⭐️⭐️|
 | ✔️ [hgemm_mma_cublas*](./kernels/hgemm/cublas/hgemm_cublas.cu)|f16|f16|[link](./kernels/hgemm/)|⭐️⭐️|
 | ✔️ [hgemm_wgmma_m64n128k16...tma{ws}{tn}*](./kernels/hgemm/wgmma/hgemm_wgmma_fp16acc_stages_tn.cu)|f16|f16|[link](./kernels/hgemm/)|⭐️⭐️⭐️|
-| ✔️ [hgemm_wgmma_m64n128k16_fp32acc...tma{ws}{tn}*](./kernels/hgemm/wgmma/hgemm_wgmma_fp32acc_stages_tn.cu)|f16|f32|[link](./kernels/hgemm/)|⭐️⭐️⭐️|
+| ✔️ [hgemm_wgmma_m64n128k16_fp32...tma*](./kernels/hgemm/wgmma/hgemm_wgmma_fp32acc_stages_tn.cu)|f16|f32|[link](./kernels/hgemm/)|⭐️⭐️⭐️|
 
 ### 📚 Hard+ ⭐️⭐️⭐️⭐️ & Hard++ ⭐️⭐️⭐️⭐️⭐️ ([©️back👆🏻](#cuda-kernel))
 
